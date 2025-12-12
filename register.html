@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+<body>
+
+ <link rel="stylesheet" href="Projekti.css">
+  <section id="register" class="form-container">
+    <form class="form-box" onsubmit="saveUser(event)">
+
+        <h2>Regjistrohu</h2>
+        <input type="text" placeholder="Emri" required>
+        <input type="text" placeholder="Mbiemri" required>
+        <input type="number" placeholder="Mosha" required>
+
+       <input type="password" placeholder="Password" required>
+ 
+        <input type="date" placeholder="Ditelindja" required>
+
+          <p style="margin-top:7px;">Zgjidh gjininë:</p>
+
+        <div style="display:flex; gap:25px; margin-top:5px; justify-content:center;">
+        <label><input type="radio" name="Gjinia"> Mashkull</label>
+        <label><input type="radio" name="Gjinia"> Femër</label>
+        </div>
+        <button class="btn" type="submit">Krijo llogari</button>
+        <p style="margin-top:10px; text-align:center;"> Ke llogari? <a href="login.html" style="color:#10141d;">Hyr këtu</a>
+     </p>
+    
+    </form>
+</section>
+<script>
+function saveUser(e) {
+    e.preventDefault();
+
+    let name = document.querySelector("input[placeholder='Emri']").value;
+    let pass = document.querySelector("input[placeholder='Password']").value;
+
+    if (name.trim() === "" || pass.trim() === "") {
+        alert("Ju lutemi plotësoni të gjitha fushat!");
+        return;
+    }
+
+    
+    localStorage.setItem("username", name);
+    localStorage.setItem("password", pass);
+
+    
+    window.location.href = "login.html";
+}
+</script>
+
+
+
+</body>
+</html>
